@@ -1,15 +1,10 @@
 from flask import Flask, request
 import requests
-import os
 
 app = Flask(__name__)
 
 BOT_TOKEN = "8933983896:AAGlDPlT8R1RFpvcjH2DXFoYwcaYcew-omw"
 CHAT_ID = "-1003948216649"
-
-
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
 
 @app.route("/")
 def home():
