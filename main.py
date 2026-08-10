@@ -24,7 +24,16 @@ def webhook():
             "text": mensaje
         }
     )
-
+@app.route("/test")
+def test():
+    requests.post(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+        json={
+            "chat_id": CHAT_ID,
+            "text": "TEST DESDE RAILWAY"
+        }
+    )
+    return "OK"
     return {"status": "ok"}
 
 if __name__ == "__main__":
