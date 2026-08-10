@@ -24,6 +24,27 @@ def webhook():
             "text": mensaje
         }
     )
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+
+    print("WEBHOOK RECIBIDO")
+
+    data = request.json
+    print(data)
+
+    mensaje = data.get("message", "Sin señal")
+
+    requests.post(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
+        json={
+            "chat_id": CHAT_ID,
+            "text": mensaje
+        }
+    )
+
+    return {"status": "ok"}
+
 @app.route("/test")
 def test():
     requests.post(
