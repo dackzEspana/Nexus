@@ -43,7 +43,6 @@ def webhook():
         }
     )
 
-    return {"status": "ok"}
 
 @app.route("/test")
 def test():
